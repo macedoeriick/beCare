@@ -1,0 +1,253 @@
+@media screen and (min-device-width:360px) {
+  div#showgrid {
+    width: 360px;
+    margin: left;
+   float: left;
+  }
+}
+body /*troca de cor de fundo*/ {
+    background-color: rgb(245, 223, 221) !important;
+}
+div.column {
+  text-align: left;
+  margin: left;
+  float: left;
+}
+
+button.btn_carinha {
+  background-color: #fff;
+  align-self:center;
+  align-content:center;
+  align-items:center;
+  border-radius:90%;
+  background-position: -200px -200px;
+  height:90px;
+  width: 90x;
+  position: relative;
+  left: 45px;
+ 
+}
+
+
+.row {
+  width: 100%;
+  margin: left;
+  float: left;
+}
+
+@media (min-device-width: 360px) {
+  .column {
+    width: 110px;
+    height: 110px;    
+    float: left;
+	  margin: left;
+  }
+  .columnEscondida {
+    width: 110px;
+    height: 110px;    
+    float: left;
+	  margin: left;  
+    visibility:hidden;
+  }
+}
+
+.column {
+  width: 110px;
+  height: 110px;
+  float: left;
+  margin: left;
+  padding-top: 5px; 
+  padding-right: 5px; 
+  padding-bottom: 5px; 
+  padding-left: 5px;
+}
+
+#titlebar { /*baner de entrada config e cor   */
+    display: block;
+    position: relative;
+    height: 100px;
+    width: calc(100% - 2px);
+    background-color: white;
+   
+        
+    /*padding: 4px;   */
+}
+
+
+#main {
+           
+    height: calc(100% - 32px);
+    /*margin-top: 32px;*/
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#titlebar #drag-region {
+  width: 100%;
+  height: 100%;
+  -webkit-app-region: drag;
+}
+
+#window-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 46px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  font-family: "Segoe MDL2 Assets";
+  font-size: 10px;
+  -webkit-app-region: no-drag;
+}
+#window-controls .button {
+  grid-row: 1 / span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  cursor: default;
+  color: rgb(187, 187, 187);
+}
+#window-controls #min-button {
+  grid-column: 3;
+  color: #AB3440;
+}
+#window-controls #max-button, #window-controls #restore-button {
+  grid-column: 2;
+}
+#window-controls #close-button {
+  grid-column: 1;
+}
+
+#window-controls #min-button:hover {
+  background: rgba(255,255,255,0.2);
+  color: #FFF;
+  cursor: pointer;  
+}
+#window-controls #close-button:hover {
+  /*background: #E81123;*/
+}
+#window-controls #restore-button {
+  display: none;
+}
+
+#logo  {
+    height: 60px;
+    width: calc(100% - 2px);
+    background: #fff;
+    position: relative;  
+    margin-top: -90px;
+    }
+    
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      input[type='range'] {
+        overflow: hidden;
+        width: 80px;
+        -webkit-appearance: none;
+        background-color:#D66F75;      }
+      
+      input[type='range']::-webkit-slider-runnable-track {
+        height: 20px;
+        -webkit-appearance: none;
+        color: yellow;
+        margin-top: -1px;
+      }
+      
+      input[type='range']::-webkit-slider-thumb {
+        width: 20px;
+        -webkit-appearance: none;
+        height: 20px;
+        cursor: ew-resize;
+        background: white;
+       
+      }
+    }
+    .rangeslider {
+      width: 400px;
+      margin: 0 auto;
+    }
+    
+    .myslider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 22px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      margin-top: 100px;
+    
+    }
+    
+    .myslider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #37022A;
+      cursor: pointer;
+    }
+    
+    .myslider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #37022A;
+      cursor: pointer;
+      
+    }
+    
+    .myslider:hover {
+      opacity: 1;
+    }
+    
+    .image {
+      position:block;
+      width: 400px;
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 220px;
+      margin-left: 110px;
+
+    }
+    
+    .image>img {
+      position: absolute;
+      display: none;
+      margin: 0 auto;
+      
+    }
+    
+    .image>img.visible,
+    .image>img:nth-child(3){
+      display: block;
+      margin: 0 auto;
+    }
+    
+    .sliderOutput>div {
+      margin: 5px;
+      width: 120px;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      display: none;
+    }
+  
+img.loading {
+  width: 20px;  
+  height: 20px;
+  float: left;
+  display: none;
+  margin-right: auto;
+  margin-left: 195px;
+}
+
+#version {
+  font-size: 8px;
+  margin-left: 4px;
+}

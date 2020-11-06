@@ -1,0 +1,36 @@
+{
+  "name": "BeCare",
+  "version": "2.4.0",
+  "description": "aplicativo de feedbacks de sentimento",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "package-mac": "electron-packager . BeCare --overwrite --platform=darwin --arch=x64 --icon=icon/icon --prune=true",
+    "package-win": "electron-packager . BeCare --overwrite --platform=win32 --arch=x64 --icon=icon/icon --prune=true --ignore=^/instalador",
+    "package-linux": "electron-packager . BeCare --overwrite --platform=linux --arch=x64 --icon=icon/icon --prune=true",
+    "package-all": "electron-packager . BeCare --overwrite --platform=darwin,win32,linux --arch=x64 --icon=icon/icon --prune=true",
+    "installer": "node build.js",
+    "build": "npm run package-win && npm run installer"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://leonardo.farias@innersource.accenture.com/scm/br-in/bra.in-be-happy-desktop.git"
+  },
+  "author": "BRAIN",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.2.1",
+    "electron-installer-dmg": "^2.0.0",
+    "electron-packager": "^13.1.1",
+    "electron-winstaller": "^3.0.4"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.738.0",
+    "crypto-js": "^4.0.0",
+    "electron-positioner": "^4.1.0",
+    "bootstrap": "^3.4.1",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.14.4",
+    "windows-shortcuts": "^0.1.6"
+  }
+}
