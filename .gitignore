@@ -93,3 +93,5 @@ BeCare-win32-x64
 instalador
 credentials2.json
 package-lock.json
+sendfiles/
+output.json

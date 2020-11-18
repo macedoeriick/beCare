@@ -7,6 +7,7 @@
   <!--<script language="JavaScript" src='scripts.js'></script>-->
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/282b88696f.js" crossorigin="anonymous"></script>
 
   <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
 
@@ -51,6 +52,7 @@
     <img height="80%" width="70%" src="img\Be.Care_marca.png" alt="marca_be.care" style="margin-left: 65px;">
   </div>
   <!--Cor e estilo de fonte já foram alteradas-->
+  <button id="calendar" class="calendar" style="background-color: #f5dfdd; border: #f5dfdd; cursor: pointer; margin-left: 3px; margin-top: 3px; z-index: 10;"><i class="fas fa-birthday-cake"></i></button>
   <h2 style="color:#37022A;text-align:center;font-family:'Arial Rounded MT'; font-size:30px;">
     Olá, seja bem vindo!
   </h2>
@@ -66,53 +68,77 @@
       <div class="row">
         <div class="column"><button class="btn_carinha" id="f1" title="Contente" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img\contente.png"></button></div>
+              src="img\contente.png"></button>
+          <p style="margin: 4px 75px;">Contente</p>
+        </div>
         <div class="column"><button class="btn_carinha" id="f2" title="Alegre" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img\feliz.png"></button></div>
+              src="img\feliz.png"></button>
+          <p style="margin: 4px 82px;">Alegre</p>
+        </div>
         <div class="column"><button class="btn_carinha" id="f3" title="Otimista" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img\super feliz.png"></button></div>
+              src="img\super feliz.png"></button>
+          <p style="margin: 4px 78px;">Otimista</p>
+        </div>
       </div>
       <div class="row">
         <div class="column"><button class="btn_carinha" id="b1" title="Calmo" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img/calmo@4x.png"></button></div>
+              src="img/calmo@4x.png"></button>
+          <p style="margin: 4px 81px;">Calmo</p>
+        </div>
         <div class="column"><button class="btn_carinha" id="b2" title="Normal" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img/normal.png"></button></div>
+              src="img/normal.png"></button>
+          <p style="margin: 4px 80px;">Normal</p>
+        </div>
         <div class="column"><button class="btn_carinha" id="b3" title="Orgulhoso" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img/orgulhoso@4x.png"></button></div>
+              src="img/orgulhoso@4x.png"></button>
+          <p style="margin: 4px 75px;">Orgulhoso</p>
+        </div>
       </div>
       <div class="row">
         <div class="column"><button class="btn_carinha" id="t1" title="Ansioso" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img/ansioso.png"></button></div>
+              src="img/ansioso.png"></button>
+          <p style="margin: 4px 78px;">Ansioso</p>
+        </div>
         <div class="column"><button class="btn_carinha" id="t2" title="Decepcionado" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img/desanimado.png"></button></div>
+              src="img/desanimado.png"></button>
+          <p style="margin: 4px 66px;">Decepcionado</p>
+        </div>
         <div class="column"><button class="btn_carinha" id="t3" title="Aborrecido" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img/bravo.png"></button></div>
+              src="img/bravo.png"></button>
+          <p style="margin: 4px 74px;">Aborrecido</p>
+        </div>
       </div>
       <div class="row">
         <div class="column"><button class="btn_carinha" id="p1" title="Estressado" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img/furioso.png"></button></div>
+              src="img/furioso.png"></button>
+          <p style="margin: 4px 71px;">Estressado</p>
+        </div>
         <div class="column"><button class="btn_carinha" id="p2" title="Desanimado" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img/triste.png"></button></div>
+              src="img/triste.png"></button>
+          <p style="margin: 4px 68px;">Desanimado</p>
+        </div>
         <div class="column"><button class="btn_carinha" id="p3" title="Triste" onclick="getButton(this)"><img
               height="50%" width="50%" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
-              src="img/muito triste.png"></button></div>
+              src="img/muito triste.png"></button>
+          <p style="margin: 4px 83px;">Triste</p>
+        </div>
       </div>
 
     </div>
 
   </div>
 
-  <p style="color: #AB3440;text-align: center;font-family: 'Arial Rounded MT';font-size: 18px;">
+  <p style="color: #AB3440;text-align: center;font-family: 'Arial Rounded MT';font-size: 18px; margin-top: 8px;">
     Como está sua energia agora?
   </p>
 
@@ -130,14 +156,27 @@
       <stspan id="demo" style="opacity:0;"></span>
     </p>
   </div>
-  <div>
+  <div class="footer">
+    <a onclick="myFunction()"><button class="btn btn-large btn-default moreInfo-Link-button"
+        style="background-color:#f5dfdd;color:#37022A;font-family: 'Arial Rounded MT';border-radius: 10px;border-color:black;float: left;align-content: flex-end;display: flex;margin-left: 2px;padding: 5.5px 5px;font-size: 11.5px;">Sugestões</button></a>
     <img src="./img/loading.gif" alt="loading" class="loading" id="loading">
     <button id="enviar"
       style="background-color: #37022A;color: white;font-family: 'Arial Rounded MT';border-radius: 10px; float: right;"
       disabled>Enviar</button><br /><br />
   </div>
   <label id="version"></label>
-  
+  <div class="bg-modal" id="bg-modal">
+    <div class="modal-content">
+      <button class="fechar" id="fechar">x</button>
+      <label style="padding: 0px 5px 0px 5px;">Diga quando é o seu aniversário que eu te farei uma surpresa!</label>
+      <form class="form">
+        <input type="tel" name="date" id="date" placeholder="dd-mm" maxlength="5"
+          oninput="this.value = DDMMYYYY(this.value, event)">
+        <input type="button" value="Salvar" class="salvar" id="salvar" onclick="send()">
+      </form>
+    </div>
+  </div>
+
   <script>
     const version = require('./package.json').version
     $('#version').html(`v${version}`)
@@ -145,7 +184,6 @@
     var output = document.getElementById("demo");
     var condicao = 'c' + slider.value;
     output.innerHTML = condicao;
-
     slider.oninput = function () {
       condicao = 'c' + this.value;
       output.innerHTML = condicao;
@@ -162,8 +200,57 @@
     var carinha_selecionada = false
     var condicao_selecionada = false
 
+    // Script do PopUp de aniversário
+    function abrirPopUp(modalID) {
+      const modal = document.getElementById(modalID)
+      modal.classList.add('mostrar')
+      modal.addEventListener('click', (e) => {
+        if(e.target.id == modalID || e.target.id == 'fechar' || e.target.id == 'salvar' ) {
+          modal.classList.remove('mostrar')
+        }
+      })
+    }
+
+    const calendar = document.querySelector('.calendar');
+    calendar.addEventListener('click', () => abrirPopUp('bg-modal'))
+
     // Initialize aws
     var _0x8ff3 = ["\x61\x77\x73\x2D\x73\x64\x6B", "\x2E\x2F\x63\x72\x65\x64\x65\x6E\x74\x69\x61\x6C\x73\x2E\x6A\x73\x6F\x6E", "\x63\x72\x79\x70\x74\x6F\x2D\x6A\x73", "\x61\x63\x63\x65\x73\x73\x4B\x65\x79\x49\x64", "\x73\x65\x63\x72\x65\x74\x41\x63\x63\x65\x73\x73\x4B\x65\x79", "\x72\x65\x67\x69\x6F\x6E", "\x74\x61\x62\x6C\x65\x4E\x61\x6D\x65", "\x73\x65\x63\x72\x65\x74\x20\x6B\x65\x79\x20\x31\x32\x33", "\x64\x65\x63\x72\x79\x70\x74", "\x41\x45\x53", "\x65\x6E\x63", "\x41\x57\x53\x5F\x41\x43\x43\x45\x53\x53\x5F\x4B\x45\x59\x5F\x49\x44", "\x65\x6E\x76", "\x41\x57\x53\x5F\x53\x45\x43\x52\x45\x54\x5F\x41\x43\x43\x45\x53\x53\x5F\x4B\x45\x59", "\x41\x57\x53\x5F\x52\x45\x47\x49\x4F\x4E", "\x75\x73\x2D\x65\x61\x73\x74\x2D\x31", "\x75\x70\x64\x61\x74\x65", "\x63\x6F\x6E\x66\x69\x67", "\x44\x79\x6E\x61\x6D\x6F\x44\x42", "\x63\x6C\x69\x63\x6B", "\x75\x73\x65\x72\x6E\x61\x6D\x65", "\x75\x73\x65\x72\x49\x6E\x66\x6F", "\x6E\x6F\x77", "\x55\x6E\x61\x62\x6C\x65\x20\x74\x6F\x20\x61\x64\x64\x20\x69\x74\x65\x6D\x2E\x20\x45\x72\x72\x6F\x72\x20\x4A\x53\x4F\x4E\x3A", "\x73\x74\x72\x69\x6E\x67\x69\x66\x79", "\x65\x72\x72\x6F\x72", "\x41\x64\x64\x65\x64\x20\x69\x74\x65\x6D\x3A", "\x6C\x6F\x67", "\x68\x69\x64\x65", "\x73\x65\x6E\x64", "\x70\x75\x74", "\x6C\x6F\x61\x64\x69\x6E\x67", "\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64", "\x64\x69\x73\x70\x6C\x61\x79", "\x73\x74\x79\x6C\x65", "\x62\x6C\x6F\x63\x6B", "\x6E\x6F\x6E\x65", "\x76\x61\x6C\x75\x65", "\x70\x72\x6F\x70", "\x23\x73\x6C\x69\x64\x65\x72\x52\x61\x6E\x67\x65", "\x64\x69\x73\x61\x62\x6C\x65\x64", "\x23\x65\x6E\x76\x69\x61\x72", "\x20\x23\x73\x68\x6F\x77\x67\x72\x69\x64\x20\x3E\x20\x2A", "\x6C\x6F\x61\x64", "\x23\x73\x68\x6F\x77\x67\x72\x69\x64", "\x20\x23\x73\x6C\x69\x64\x65\x72\x49\x6D\x61\x67\x65\x73\x20\x3E\x20\x2A", "\x23\x73\x6C\x69\x64\x65\x72\x49\x6D\x61\x67\x65\x73", "\x63", "\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72", "\x65\x6E\x76\x69\x61\x72"]; var AWS = require(_0x8ff3[0]); var credentials = require(_0x8ff3[1]); var CryptoJS = require(_0x8ff3[2]); let accessKey = credentials[_0x8ff3[3]]; let secretAccessKey = credentials[_0x8ff3[4]]; let region = credentials[_0x8ff3[5]]; let tableName = credentials[_0x8ff3[6]]; var accessCript = CryptoJS[_0x8ff3[9]][_0x8ff3[8]](accessKey, _0x8ff3[7]); var secretCript = CryptoJS[_0x8ff3[9]][_0x8ff3[8]](secretAccessKey, _0x8ff3[7]); var regCrip = CryptoJS[_0x8ff3[9]][_0x8ff3[8]](region, _0x8ff3[7]); var tableCript = CryptoJS[_0x8ff3[9]][_0x8ff3[8]](tableName, _0x8ff3[7]); var access = accessCript.toString(CryptoJS[_0x8ff3[10]].Utf8); var secret = secretCript.toString(CryptoJS[_0x8ff3[10]].Utf8); var reg = regCrip.toString(CryptoJS[_0x8ff3[10]].Utf8); var table = tableCript.toString(CryptoJS[_0x8ff3[10]].Utf8); process[_0x8ff3[12]][_0x8ff3[11]] = access; process[_0x8ff3[12]][_0x8ff3[13]] = secret; process[_0x8ff3[12]][_0x8ff3[14]] = reg; AWS[_0x8ff3[17]][_0x8ff3[16]]({ region: _0x8ff3[15] }); var docClient = new AWS[_0x8ff3[18]].DocumentClient(); document[_0x8ff3[32]](_0x8ff3[49])[_0x8ff3[48]](_0x8ff3[19], function () { var _0xb306x11 = { TableName: table, Item: { "\x69\x64": os[_0x8ff3[21]]()[_0x8ff3[20]] + Date[_0x8ff3[22]](), "\x65\x69\x64": os[_0x8ff3[21]]()[_0x8ff3[20]], "\x63\x61\x72\x69\x6E\x68\x61\x45\x6D\x6F\x63\x61\x6F": id_botao_selecionado, "\x63\x61\x72\x69\x6E\x68\x61\x43\x6F\x6E\x64\x69\x63\x61\x6F": condicao, "\x74\x69\x6D\x65\x73\x74\x61\x6D\x70": Date[_0x8ff3[22]]() } }; docClient[_0x8ff3[30]](_0xb306x11, function (_0xb306x12, _0xb306x13) { if (_0xb306x12) { console[_0x8ff3[25]](_0x8ff3[23], JSON[_0x8ff3[24]](_0xb306x12, null, 2)) } else { console[_0x8ff3[27]](_0x8ff3[26], JSON[_0x8ff3[24]](_0xb306x13, null, 2)); ipcRenderer[_0x8ff3[29]](_0x8ff3[28]) } }); var _0xb306x14 = document[_0x8ff3[32]](_0x8ff3[31]); _0xb306x14[_0x8ff3[34]][_0x8ff3[33]] = _0x8ff3[35]; setTimeout(() => { _0xb306x14[_0x8ff3[34]][_0x8ff3[33]] = _0x8ff3[36]; $(_0x8ff3[39])[_0x8ff3[38]](_0x8ff3[37], 3); $(_0x8ff3[41])[_0x8ff3[38]](_0x8ff3[40], true); $(_0x8ff3[44])[_0x8ff3[43]](_0x8ff3[42]); $(_0x8ff3[46])[_0x8ff3[43]](_0x8ff3[45]); condicao = _0x8ff3[47] + slider[_0x8ff3[37]] }, 30000) })
+    var aniv = new AWS.DynamoDB.DocumentClient();
+    let secondTable = credentials.secondTableName
+    var secondTableCript = CryptoJS.AES.decrypt(secondTable, 'secret key 123');
+    var second = secondTableCript.toString(CryptoJS.enc.Utf8);
+
+    function send() {
+      var params = {
+        TableName: second,
+        Item: {
+          "eid": os.userInfo().username,
+          "aniversario": document.getElementById('date').value
+        }
+      };
+      aniv.put(params, function (err, data) {
+        if (err) {
+          console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+          console.log("Added item:", JSON.stringify(data, null, 2));
+        }
+      });
+
+      ipcRenderer.send('done');
+
+    }
+
+    //Script pra data de aniversário
+    function DDMMYYYY(value, event) {
+      let newValue = value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');
+      const dayOrMonth = (index) => index == 1;
+      // on delete key.  
+      if (!event.data) {
+        return value;
+      }
+      return newValue.split('').map((v, i) => dayOrMonth(i) ? v + '/' : v).join('');;
+    }
 
     //scripts para o html
     function bigImg(x) {
@@ -204,6 +291,13 @@
         images.children[i].style.display = 'block';
       });
     });
+  </script>
+  <script>
+    function myFunction() {
+      var shell = require('electron').shell;
+      event.preventDefault();
+      shell.openExternal('https://web.yammer.com/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI0NTA4MTk2MDQ0OCJ9/all');
+    }
   </script>
 </body>
 
