@@ -15,6 +15,7 @@ var CryptoJS = require("crypto-js");
 var dateformat = require('dateformat')
 var date = new Date()
 var fs = require('fs')
+const brightness = require('brightness');
 let accessKey = credentials.accessKeyId
 let secretAccessKey = credentials.secretAccessKey
 let region = credentials.region
@@ -124,6 +125,7 @@ app.on('ready', () => { // primeiro evento do app
   sendNotify();
   // startAutoUpdater(squirrelUrl);
   checkBirth()
+  darkMode()
   primeiraMensagem = gerarAleatorio()
   segundaMensagem = gerarAleatorio()
   if (segundaMensagem == primeiraMensagem) {
@@ -324,83 +326,120 @@ async function checkBirth() {
     var str_hora = hora + ':' + min;
     const dynamoDb = new AWS.DynamoDB.DocumentClient({ region: reg });
 
-    if (str_hora == '16:10') { 
+    if (str_hora == '14:0') {
 
-    async function loadAllResults() {
-      var results = []
-      var currentResults = await loadAdditionalResults()
-      results = results.concat(currentResults.Items)
-      while (currentResults.LastEvaluatedKey) {
-        currentResults = await loadAdditionalResults(currentResults.LastEvaluatedKey)
+      async function loadAllResults() {
+        var results = []
+        var currentResults = await loadAdditionalResults()
         results = results.concat(currentResults.Items)
-      }
-      fs.writeFile(`${__dirname}/output.json`, JSON.stringify(results, null, 2), () => {
-        console.log(results.length)
-      })
-      return results
-    }
-
-    async function loadAdditionalResults(start) {
-      console.log("Loading more results...")
-      var params = {
-        TableName: table,
-      }
-
-      if (start) {
-        params.ExclusiveStartKey = start
-      }
-
-      return new Promise((resolve, reject) => {
-        dynamoDb.scan(params, (error, result) => {
-          if (error) {
-            console.log(error);
-            reject(error)
-          } else if (result) {
-            resolve(result)
-          } else {
-            reject("Unknown error")
-          }
+        while (currentResults.LastEvaluatedKey) {
+          currentResults = await loadAdditionalResults(currentResults.LastEvaluatedKey)
+          results = results.concat(currentResults.Items)
+        }
+        fs.writeFile(`${__dirname}/output.json`, JSON.stringify(results, null, 2), () => {
+          console.log(results.length)
         })
-      })
-    }
-    async function main() {
-      let results = await loadAllResults()
-    }
-    main()
+        return results
+      }
 
-    setTimeout(() => {
-      var funcionarios = require(`${__dirname}/output.json`)
-      var dataHoje = dateformat(date, 'd/mm')
-      for (let i in funcionarios) {
-        if (funcionarios[i].aniversario == dataHoje) {
-          if (funcionarios[i].eid == os.userInfo().username) {
-            var notification = new Notification({
-              title: "Parabéns!",
-              body: `Hoje é o seu aniversário ${funcionarios[i].eid}! O be.care te deseja parabéns!`,
-              icon: icon
-            });
-            notification.show()
-          } else if (funcionarios[i].eid != os.userInfo().username) {
-            notification = new Notification({
-              title: "Parabéns!",
-              body: `Hoje é o aniversário de ${funcionarios[i].eid} dê a ele os parabéns!`,
-              icon: icon
-            })
-            notification.show()
+      async function loadAdditionalResults(start) {
+        console.log("Loading more results...")
+        var params = {
+          TableName: table,
+        }
+
+        if (start) {
+          params.ExclusiveStartKey = start
+        }
+
+        return new Promise((resolve, reject) => {
+          dynamoDb.scan(params, (error, result) => {
+            if (error) {
+              console.log(error);
+              reject(error)
+            } else if (result) {
+              resolve(result)
+            } else {
+              reject("Unknown error")
+            }
+          })
+        })
+      }
+      async function main() {
+        let results = await loadAllResults()
+      }
+      main()
+
+      setTimeout(() => {
+        var funcionarios = require(`${__dirname}/output.json`)
+        var dataHoje = dateformat(date, 'd/mm')
+        for (let i in funcionarios) {
+          if (funcionarios[i].aniversario == dataHoje) {
+            if (funcionarios[i].eid == os.userInfo().username) {
+              var notification = new Notification({
+                title: "Parabéns!",
+                body: `Hoje é o seu aniversário ${funcionarios[i].eid}! O be.care te deseja parabéns!`,
+                icon: icon
+              });
+              notification.show()
+            } else if (funcionarios[i].eid != os.userInfo().username) {
+              notification = new Notification({
+                title: "Parabéns!",
+                body: `Hoje é o aniversário de ${funcionarios[i].eid} dê a ele os parabéns!`,
+                icon: icon
+              })
+              notification.show()
+            }
           }
         }
-      }
-    }, 15000)
-  }
+      }, 15000)
+    }
     await timeOut(60000);
   }
 }
+async function darkMode() {
+  await timeOut(5000);
+
+  while (true) {
+    var data = new Date();
+    var hora = data.getHours();
+    var min = data.getMinutes();
+    var str_hora = hora + ':' + min;
+
+    if (str_hora == '19:0') {
+      brightness.get().then(level => {
+        if (level > 0.5) {
+          brightness.set(0.4).then(() => {
+            var notification = new Notification({
+              title: "Be Care !",
+              body: "Ajustamos o brilho da tela para descansar sua vista ok? Se optar, clique aqui e reajustaremos ao normal!",
+              icon: icon,
+            });
+            notification.show()
+            notification.on('click', () => {
+              brightness.set(level).then(() => {
+                var notification = new Notification({
+                  title: "Be Care !",
+                  body: "Pronto! Brilho reajustado!",
+                  icon: icon,
+                });
+                notification.show()
+              })
+            });
+          });
+        }
+      });
+    }
+    await timeOut(60000);
+  }
+}
+
 ipcMain.on('hide', () => {  // quando a resposta é submetida, a janela é "limpada" e escondida
   win.hide()
   // win.reload()
   var notificacao = new Notification({  // implementação futura: dinamizar essa notificação
     title: 'Pronto !',
-    body: 'Estou sempre aqui pra te ouvir. Conte comigo.',
+    body: 'Estou sempre aqui pra te ouvir. Conte comigo!',
     icon: icon
   });
   notificacao.show()
@@ -410,7 +449,7 @@ ipcMain.on('done', () => {  // quando a resposta é submetida, a janela é "limp
   // win.reload()
   var notificacao = new Notification({  // implementação futura: dinamizar essa notificação
     title: 'Pronto !',
-    body: 'Suas informações foram armazenadas!',
+    body: 'Seu aniversário foi armazenado!',
     icon: icon
   });
   notificacao.show()

@@ -1,6 +1,6 @@
 {
   "name": "BeCare",
-  "version": "2.9.1",
+  "version": "3.0.0",
   "description": "aplicativo de feedbacks de sentimento",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
   "dependencies": {
     "aws-sdk": "^2.738.0",
     "bootstrap": "^3.4.1",
+    "brightness": "^3.0.0",
     "crypto-js": "^4.0.0",
     "dateformat": "^3.0.3",
     "electron-positioner": "^4.1.0",
