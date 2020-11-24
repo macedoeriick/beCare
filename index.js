@@ -3,34 +3,17 @@ var Positioner = require('electron-positioner')
 const { Tray, app, BrowserWindow, ipcMain, Menu, Notification } = require('electron');
 var os = require('os')
 let win;
-let tray;
+let tray = null;
 const gotTheLock = app.requestSingleInstanceLock()
 const electron = require('electron');
 const squirrelUrl = "https://testebecare.s3.amazonaws.com";
-var version = require('./package.json').version
-var icon = `${os.homedir()}/AppData/Local/BeCare/app-${version}/resources/app/img/icon.png`
 var AWS = require('aws-sdk')
 var credentials = require('./credentials.json');
 var CryptoJS = require("crypto-js");
 var dateformat = require('dateformat')
 var date = new Date()
 var fs = require('fs')
-const brightness = require('brightness');
-let accessKey = credentials.accessKeyId
-let secretAccessKey = credentials.secretAccessKey
-let region = credentials.region
-let tableName = credentials.secondTableName
-var accessCript = CryptoJS.AES.decrypt(accessKey, 'secret key 123');
-var secretCript = CryptoJS.AES.decrypt(secretAccessKey, 'secret key 123');
-var regCrip = CryptoJS.AES.decrypt(region, 'secret key 123');
-var tableCript = CryptoJS.AES.decrypt(tableName, 'secret key 123');
-var access = accessCript.toString(CryptoJS.enc.Utf8);
-var secret = secretCript.toString(CryptoJS.enc.Utf8);
-var reg = regCrip.toString(CryptoJS.enc.Utf8);
-var table = tableCript.toString(CryptoJS.enc.Utf8);
-process.env.AWS_ACCESS_KEY_ID = access;
-process.env.AWS_SECRET_ACCESS_KEY = secret;
-process.env.AWS_REGION = reg;
+var _$_5391=["\x61\x63\x63\x65\x73\x73\x4B\x65\x79\x49\x64","\x73\x65\x63\x72\x65\x74\x41\x63\x63\x65\x73\x73\x4B\x65\x79","\x72\x65\x67\x69\x6F\x6E","\x73\x65\x63\x6F\x6E\x64\x54\x61\x62\x6C\x65\x4E\x61\x6D\x65","\x73\x65\x63\x72\x65\x74\x20\x6B\x65\x79\x20\x31\x32\x33","\x64\x65\x63\x72\x79\x70\x74","\x41\x45\x53","\x55\x74\x66\x38","\x65\x6E\x63","\x74\x6F\x53\x74\x72\x69\x6E\x67","\x41\x57\x53\x5F\x41\x43\x43\x45\x53\x53\x5F\x4B\x45\x59\x5F\x49\x44","\x65\x6E\x76","\x41\x57\x53\x5F\x53\x45\x43\x52\x45\x54\x5F\x41\x43\x43\x45\x53\x53\x5F\x4B\x45\x59","\x41\x57\x53\x5F\x52\x45\x47\x49\x4F\x4E"];let accessKey=credentials[_$_5391[0]];let secretAccessKey=credentials[_$_5391[1]];let region=credentials[_$_5391[2]];let tableName=credentials[_$_5391[3]];var accessCript=CryptoJS[_$_5391[6]][_$_5391[5]](accessKey,_$_5391[4]);var secretCript=CryptoJS[_$_5391[6]][_$_5391[5]](secretAccessKey,_$_5391[4]);var regCrip=CryptoJS[_$_5391[6]][_$_5391[5]](region,_$_5391[4]);var tableCript=CryptoJS[_$_5391[6]][_$_5391[5]](tableName,_$_5391[4]);var access=accessCript[_$_5391[9]](CryptoJS[_$_5391[8]][_$_5391[7]]);var secret=secretCript[_$_5391[9]](CryptoJS[_$_5391[8]][_$_5391[7]]);var reg=regCrip[_$_5391[9]](CryptoJS[_$_5391[8]][_$_5391[7]]);var table=tableCript[_$_5391[9]](CryptoJS[_$_5391[8]][_$_5391[7]]);process[_$_5391[11]][_$_5391[10]]= access;process[_$_5391[11]][_$_5391[12]]= secret;process[_$_5391[11]][_$_5391[13]]= reg
 var eid = ['diogo.araujo', 'geraldo.c.filho', 'marcio.montanheiro', 'fernando.a.oliveira']
 var verif = eid.filter(e => (e == os.userInfo().username))
 const frases = ['Já bebeu água hoje?', 'Ninguém caminha 10km sem dar o primeiro passo!'
@@ -162,7 +145,7 @@ function createWindow(height) {
   })
 
   if (tray == null) {
-    tray = new Tray(icon);
+    tray = new Tray(`${__dirname}/img/icon.png`);
     tray.on('click', () => {
       win.show();
     })
@@ -208,7 +191,7 @@ async function checkShowWindow() {
         var notificacao = new Notification({
           title: 'Be Care !',
           body: 'Tem cuidado do seu time? Veja como eles estão se sentindo.',
-          icon: icon
+          icon: `${__dirname}/img/icon.png`
         });
         notificacao.show()
         notificacao.on('click', () => {         // ao clicar na notificação, a janela abre
@@ -218,7 +201,7 @@ async function checkShowWindow() {
         var notificacao = new Notification({
           title: 'Be Care !',
           body: 'Como você está se sentindo hoje?',
-          icon: icon
+          icon: `${__dirname}/img/icon.png`
         });
         notificacao.show()
         notificacao.on('click', () => {         // ao clicar na notificação, a janela abre
@@ -245,7 +228,7 @@ async function sendNotify() {
         var notificacao = new Notification({
           title: 'Be Care !',
           body: frases[primeiraMensagem],
-          icon: icon
+          icon: `${__dirname}/img/icon.png`
         });
         notificacao.show()
         notificacao.on('click', () => {
@@ -256,7 +239,7 @@ async function sendNotify() {
         notificacao = new Notification({
           title: 'Be Care !',
           body: frases[segundaMensagem],
-          icon: icon
+          icon: `${__dirname}/img/icon.png`
         });
         notificacao.show()
         notificacao.on('click', () => {
@@ -269,7 +252,7 @@ async function sendNotify() {
         notificacao = new Notification({
           title: 'Be Care !',
           body: frases[primeiraMensagem],
-          icon: icon
+          icon: `${__dirname}/img/icon.png`
         });
         notificacao.show()
         notificacao.on('click', () => {
@@ -280,7 +263,7 @@ async function sendNotify() {
         notificacao = new Notification({
           title: 'Be Care !',
           body: frases[segundaMensagem],
-          icon: icon
+          icon: `${__dirname}/img/icon.png`
         });
         notificacao.show()
         notificacao.on('click', () => {
@@ -293,7 +276,7 @@ async function sendNotify() {
         notificacao = new Notification({
           title: 'Be Care !',
           body: frases[primeiraMensagem],
-          icon: icon
+          icon: `${__dirname}/img/icon.png`
         });
         notificacao.show()
         notificacao.on('click', () => {
@@ -304,7 +287,7 @@ async function sendNotify() {
         notificacao = new Notification({
           title: 'Be Care !',
           body: frases[segundaMensagem],
-          icon: icon
+          icon: `${__dirname}/img/icon.png`
         });
         notificacao.show()
         notificacao.on('click', () => {
@@ -379,14 +362,14 @@ async function checkBirth() {
               var notification = new Notification({
                 title: "Parabéns!",
                 body: `Hoje é o seu aniversário ${funcionarios[i].eid}! O be.care te deseja parabéns!`,
-                icon: icon
+                icon: `${__dirname}/img/icon.png`
               });
               notification.show()
             } else if (funcionarios[i].eid != os.userInfo().username) {
               notification = new Notification({
                 title: "Parabéns!",
                 body: `Hoje é o aniversário de ${funcionarios[i].eid} dê a ele os parabéns!`,
-                icon: icon
+                icon: `${__dirname}/img/icon.png`
               })
               notification.show()
             }
@@ -408,12 +391,12 @@ async function darkMode() {
 
     if (str_hora == '19:0') {
       brightness.get().then(level => {
-        if (level > 0.5) {
+        if (level >= 0.7) {
           brightness.set(0.4).then(() => {
             var notification = new Notification({
               title: "Be Care !",
               body: "Ajustamos o brilho da tela para descansar sua vista ok? Se optar, clique aqui e reajustaremos ao normal!",
-              icon: icon,
+              icon: `${__dirname}/img/icon.png`,
             });
             notification.show()
             notification.on('click', () => {
@@ -421,7 +404,7 @@ async function darkMode() {
                 var notification = new Notification({
                   title: "Be Care !",
                   body: "Pronto! Brilho reajustado!",
-                  icon: icon,
+                  icon: `${__dirname}/img/icon.png`,
                 });
                 notification.show()
               })
@@ -440,7 +423,7 @@ ipcMain.on('hide', () => {  // quando a resposta é submetida, a janela é "limp
   var notificacao = new Notification({  // implementação futura: dinamizar essa notificação
     title: 'Pronto !',
     body: 'Estou sempre aqui pra te ouvir. Conte comigo!',
-    icon: icon
+    icon: `${__dirname}/img/icon.png`
   });
   notificacao.show()
 })
@@ -449,8 +432,8 @@ ipcMain.on('done', () => {  // quando a resposta é submetida, a janela é "limp
   // win.reload()
   var notificacao = new Notification({  // implementação futura: dinamizar essa notificação
     title: 'Pronto !',
-    body: 'Seu aniversário foi armazenado!',
-    icon: icon
+    body: 'Começamos a contagem regressiva!',
+    icon: `${__dirname}/img/icon.png`
   });
   notificacao.show()
 })

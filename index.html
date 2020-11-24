@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/282b88696f.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
   <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
 
@@ -52,7 +53,9 @@
     <img height="80%" width="70%" src="img\Be.Care_marca.png" alt="marca_be.care" style="margin-left: 65px;">
   </div>
   <!--Cor e estilo de fonte já foram alteradas-->
-  <button id="calendar" class="calendar" style="background-color: #f5dfdd; border: #f5dfdd; cursor: pointer; margin-left: 3px; margin-top: 3px; z-index: 10;"><i class="fas fa-birthday-cake"></i></button>
+  <div class="cake">
+    <button id="btn_cake" class="btn_cake" style="background-color: #f5dfdd; border: #f5dfdd; cursor: pointer; margin-left: 3px; margin-top: 3px; z-index: 10; font-size: 20px;"><i class="fas fa-birthday-cake"></i></button>
+  </div>
   <h2 style="color:#37022A;text-align:center;font-family:'Arial Rounded MT'; font-size:30px;">
     Olá, seja bem vindo!
   </h2>
@@ -210,16 +213,11 @@
         }
       })
     }
-
-    const calendar = document.querySelector('.calendar');
+    const calendar = document.querySelector('.btn_cake');
     calendar.addEventListener('click', () => abrirPopUp('bg-modal'))
-
     // Initialize aws
     var _0x8ff3 = ["\x61\x77\x73\x2D\x73\x64\x6B", "\x2E\x2F\x63\x72\x65\x64\x65\x6E\x74\x69\x61\x6C\x73\x2E\x6A\x73\x6F\x6E", "\x63\x72\x79\x70\x74\x6F\x2D\x6A\x73", "\x61\x63\x63\x65\x73\x73\x4B\x65\x79\x49\x64", "\x73\x65\x63\x72\x65\x74\x41\x63\x63\x65\x73\x73\x4B\x65\x79", "\x72\x65\x67\x69\x6F\x6E", "\x74\x61\x62\x6C\x65\x4E\x61\x6D\x65", "\x73\x65\x63\x72\x65\x74\x20\x6B\x65\x79\x20\x31\x32\x33", "\x64\x65\x63\x72\x79\x70\x74", "\x41\x45\x53", "\x65\x6E\x63", "\x41\x57\x53\x5F\x41\x43\x43\x45\x53\x53\x5F\x4B\x45\x59\x5F\x49\x44", "\x65\x6E\x76", "\x41\x57\x53\x5F\x53\x45\x43\x52\x45\x54\x5F\x41\x43\x43\x45\x53\x53\x5F\x4B\x45\x59", "\x41\x57\x53\x5F\x52\x45\x47\x49\x4F\x4E", "\x75\x73\x2D\x65\x61\x73\x74\x2D\x31", "\x75\x70\x64\x61\x74\x65", "\x63\x6F\x6E\x66\x69\x67", "\x44\x79\x6E\x61\x6D\x6F\x44\x42", "\x63\x6C\x69\x63\x6B", "\x75\x73\x65\x72\x6E\x61\x6D\x65", "\x75\x73\x65\x72\x49\x6E\x66\x6F", "\x6E\x6F\x77", "\x55\x6E\x61\x62\x6C\x65\x20\x74\x6F\x20\x61\x64\x64\x20\x69\x74\x65\x6D\x2E\x20\x45\x72\x72\x6F\x72\x20\x4A\x53\x4F\x4E\x3A", "\x73\x74\x72\x69\x6E\x67\x69\x66\x79", "\x65\x72\x72\x6F\x72", "\x41\x64\x64\x65\x64\x20\x69\x74\x65\x6D\x3A", "\x6C\x6F\x67", "\x68\x69\x64\x65", "\x73\x65\x6E\x64", "\x70\x75\x74", "\x6C\x6F\x61\x64\x69\x6E\x67", "\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64", "\x64\x69\x73\x70\x6C\x61\x79", "\x73\x74\x79\x6C\x65", "\x62\x6C\x6F\x63\x6B", "\x6E\x6F\x6E\x65", "\x76\x61\x6C\x75\x65", "\x70\x72\x6F\x70", "\x23\x73\x6C\x69\x64\x65\x72\x52\x61\x6E\x67\x65", "\x64\x69\x73\x61\x62\x6C\x65\x64", "\x23\x65\x6E\x76\x69\x61\x72", "\x20\x23\x73\x68\x6F\x77\x67\x72\x69\x64\x20\x3E\x20\x2A", "\x6C\x6F\x61\x64", "\x23\x73\x68\x6F\x77\x67\x72\x69\x64", "\x20\x23\x73\x6C\x69\x64\x65\x72\x49\x6D\x61\x67\x65\x73\x20\x3E\x20\x2A", "\x23\x73\x6C\x69\x64\x65\x72\x49\x6D\x61\x67\x65\x73", "\x63", "\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72", "\x65\x6E\x76\x69\x61\x72"]; var AWS = require(_0x8ff3[0]); var credentials = require(_0x8ff3[1]); var CryptoJS = require(_0x8ff3[2]); let accessKey = credentials[_0x8ff3[3]]; let secretAccessKey = credentials[_0x8ff3[4]]; let region = credentials[_0x8ff3[5]]; let tableName = credentials[_0x8ff3[6]]; var accessCript = CryptoJS[_0x8ff3[9]][_0x8ff3[8]](accessKey, _0x8ff3[7]); var secretCript = CryptoJS[_0x8ff3[9]][_0x8ff3[8]](secretAccessKey, _0x8ff3[7]); var regCrip = CryptoJS[_0x8ff3[9]][_0x8ff3[8]](region, _0x8ff3[7]); var tableCript = CryptoJS[_0x8ff3[9]][_0x8ff3[8]](tableName, _0x8ff3[7]); var access = accessCript.toString(CryptoJS[_0x8ff3[10]].Utf8); var secret = secretCript.toString(CryptoJS[_0x8ff3[10]].Utf8); var reg = regCrip.toString(CryptoJS[_0x8ff3[10]].Utf8); var table = tableCript.toString(CryptoJS[_0x8ff3[10]].Utf8); process[_0x8ff3[12]][_0x8ff3[11]] = access; process[_0x8ff3[12]][_0x8ff3[13]] = secret; process[_0x8ff3[12]][_0x8ff3[14]] = reg; AWS[_0x8ff3[17]][_0x8ff3[16]]({ region: _0x8ff3[15] }); var docClient = new AWS[_0x8ff3[18]].DocumentClient(); document[_0x8ff3[32]](_0x8ff3[49])[_0x8ff3[48]](_0x8ff3[19], function () { var _0xb306x11 = { TableName: table, Item: { "\x69\x64": os[_0x8ff3[21]]()[_0x8ff3[20]] + Date[_0x8ff3[22]](), "\x65\x69\x64": os[_0x8ff3[21]]()[_0x8ff3[20]], "\x63\x61\x72\x69\x6E\x68\x61\x45\x6D\x6F\x63\x61\x6F": id_botao_selecionado, "\x63\x61\x72\x69\x6E\x68\x61\x43\x6F\x6E\x64\x69\x63\x61\x6F": condicao, "\x74\x69\x6D\x65\x73\x74\x61\x6D\x70": Date[_0x8ff3[22]]() } }; docClient[_0x8ff3[30]](_0xb306x11, function (_0xb306x12, _0xb306x13) { if (_0xb306x12) { console[_0x8ff3[25]](_0x8ff3[23], JSON[_0x8ff3[24]](_0xb306x12, null, 2)) } else { console[_0x8ff3[27]](_0x8ff3[26], JSON[_0x8ff3[24]](_0xb306x13, null, 2)); ipcRenderer[_0x8ff3[29]](_0x8ff3[28]) } }); var _0xb306x14 = document[_0x8ff3[32]](_0x8ff3[31]); _0xb306x14[_0x8ff3[34]][_0x8ff3[33]] = _0x8ff3[35]; setTimeout(() => { _0xb306x14[_0x8ff3[34]][_0x8ff3[33]] = _0x8ff3[36]; $(_0x8ff3[39])[_0x8ff3[38]](_0x8ff3[37], 3); $(_0x8ff3[41])[_0x8ff3[38]](_0x8ff3[40], true); $(_0x8ff3[44])[_0x8ff3[43]](_0x8ff3[42]); $(_0x8ff3[46])[_0x8ff3[43]](_0x8ff3[45]); condicao = _0x8ff3[47] + slider[_0x8ff3[37]] }, 30000) })
-    var aniv = new AWS.DynamoDB.DocumentClient();
-    let secondTable = credentials.secondTableName
-    var secondTableCript = CryptoJS.AES.decrypt(secondTable, 'secret key 123');
-    var second = secondTableCript.toString(CryptoJS.enc.Utf8);
+    var _$_f698=["\x44\x6F\x63\x75\x6D\x65\x6E\x74\x43\x6C\x69\x65\x6E\x74","\x44\x79\x6E\x61\x6D\x6F\x44\x42","\x73\x65\x63\x6F\x6E\x64\x54\x61\x62\x6C\x65\x4E\x61\x6D\x65","\x73\x65\x63\x72\x65\x74\x20\x6B\x65\x79\x20\x31\x32\x33","\x64\x65\x63\x72\x79\x70\x74","\x41\x45\x53","\x55\x74\x66\x38","\x65\x6E\x63","\x74\x6F\x53\x74\x72\x69\x6E\x67"];var aniv= new AWS[_$_f698[1]][_$_f698[0]]();let secondTable=credentials[_$_f698[2]];var secondTableCript=CryptoJS[_$_f698[5]][_$_f698[4]](secondTable,_$_f698[3]);var second=secondTableCript[_$_f698[8]](CryptoJS[_$_f698[7]][_$_f698[6]])
 
     function send() {
       var params = {

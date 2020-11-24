@@ -249,7 +249,7 @@ button.btn_carinha {
 #enviar {
   position: absolute;
   left: 88%;
-  margin-left: -22px;
+  margin-left: -20.5px;
   padding: 2.5px 10px
 }
 .footer {
@@ -321,4 +321,13 @@ button.btn_carinha {
 .form input {
   margin-top: 8px;
   
+}
+
+.cake {
+  width: 100%;
+  height: 30px;
+}
+
+.btn_cake :hover {
+  font-size: 30px;
 }
